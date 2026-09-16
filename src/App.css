@@ -431,6 +431,184 @@ main {
 }
 
 /* ==========================================================================
+   Contact Section Styles
+   ========================================================================== */
+.contact-section {
+  padding: 6rem 1.5rem;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+.contact-info-col {
+  flex: 1 1 400px;
+}
+
+.contact-info-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.contact-info-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2.2rem;
+}
+
+.contact-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-detail-item:hover {
+  transform: translateX(4px);
+  border-color: var(--border-hover);
+}
+
+.contact-detail-icon {
+  font-size: 1.6rem;
+  background-color: rgba(99, 102, 241, 0.12);
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.detail-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.contact-form-card {
+  flex: 1 1 460px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form-card:hover {
+  border-color: var(--border-hover);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.form-success-box {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.success-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.success-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.success-desc {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-size: 0.98rem;
+}
+
+.btn-reset {
+  margin: 0 auto;
+}
+
+/* ==========================================================================
    Footer Section Styles
    ========================================================================== */
 .site-footer {
@@ -556,6 +734,12 @@ main {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
+@media (max-width: 860px) {
+  .contact-grid {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.4rem;
@@ -569,11 +753,13 @@ main {
     padding: 4rem 1rem 3rem;
   }
 
-  .about-section {
+  .about-section,
+  .contact-section {
     padding: 4rem 1rem;
   }
 
-  .about-card {
+  .about-card,
+  .contact-form-card {
     padding: 1.75rem;
   }
 

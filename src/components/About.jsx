@@ -10,7 +10,7 @@ function About() {
     {
       icon: '⚡',
       title: 'Vite Ecosystem',
-      description: 'Superfast builds and instant hot module replacement for a seamless development workflow.'
+      description: 'Superfast builds and instant hot module replacement for an efficient development workflow.'
     },
     {
       icon: '🎨',
@@ -30,15 +30,16 @@ function About() {
 
         <div className="about-card">
           <div className="about-content">
-            <h3 className="about-heading">আমাদের লক্ষ্য ও প্রযুক্তি পরিচিতি</h3>
+            <h3 className="about-heading">My Journey & Project Mission</h3>
             <p className="about-text">
-              এটি আমার প্রথম <strong>React JS</strong> Website। আমি React JS এবং Vite ব্যবহার করে এই Website তৈরি করেছি।
-              এই Project-এর মাধ্যমে আমি Component-ভিত্তিক আর্কিটেকচার এবং আধুনিক CSS ডিজাইন সম্পর্কে বিস্তারিত শিখছি।
-              প্রতিটি অংশকে পৃথক মডিউলে বিভক্ত করে কোডকে পরিচ্ছন্ন ও পুনরায় ব্যবহারযোগ্য করাই এই প্রজেক্টের মূল লক্ষ্য।
+              This is my first <strong>React JS</strong> website. I built this application using modern 
+              React JS and Vite. Through this project, I am deepening my understanding of component-driven 
+              architecture, modern CSS styling, and responsive web design principles.
             </p>
             <p className="about-text">
-              This website serves as a practical milestone showcasing core React fundamentals,
-              component hierarchy, stateful logic, and bespoke responsive styling without relying on heavy frameworks.
+              Breaking down the user interface into independent, reusable modules makes the codebase clean, 
+              scalable, and easy to maintain. It serves as a strong foundation for building more complex, 
+              interactive web applications in the future.
             </p>
           </div>
         </div>

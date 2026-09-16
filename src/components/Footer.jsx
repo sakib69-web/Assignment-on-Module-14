@@ -4,7 +4,7 @@ function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="site-footer" id="contact">
+    <footer className="site-footer" id="footer">
       <div className="footer-container">
         <div className="footer-top">
           <div className="footer-brand">
