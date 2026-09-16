@@ -2,6 +2,7 @@
 :root {
   --bg-primary: #0a0f1d;
   --bg-secondary: #0f172a;
+  --bg-footer: #080c18;
   --bg-card: #1e293b;
   --bg-card-hover: #283548;
   --text-primary: #f8fafc;
@@ -38,6 +39,10 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 /* ==========================================================================
@@ -426,6 +431,129 @@ body {
 }
 
 /* ==========================================================================
+   Footer Section Styles
+   ========================================================================== */
+.site-footer {
+  background-color: var(--bg-footer);
+  border-top: 1px solid var(--border-subtle);
+  padding: 5rem 1.5rem 2.5rem;
+  color: var(--text-secondary);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand {
+  flex: 2 1 320px;
+}
+
+.footer-logo {
+  margin-bottom: 1rem;
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 320px;
+}
+
+.footer-nav-col {
+  flex: 1 1 160px;
+}
+
+.footer-heading {
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links li a,
+.footer-links li span {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links li a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.footer-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.social-pill {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.social-pill:hover {
+  background-color: rgba(99, 102, 241, 0.15);
+  border-color: var(--border-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  height: 1px;
+  background-color: var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.copyright-text {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.footer-subtext {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
 @media (max-width: 768px) {
@@ -452,6 +580,15 @@ body {
   .section-title {
     font-size: 2rem;
   }
+
+  .site-footer {
+    padding: 3.5rem 1rem 2rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 640px) {
@@ -469,5 +606,10 @@ body {
 
   .highlights-grid {
     flex-direction: column;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
