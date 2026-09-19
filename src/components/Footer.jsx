@@ -10,7 +10,7 @@ function Footer() {
           <div className="footer-brand">
             <div className="brand-logo footer-logo">
               <span className="logo-icon">⚡</span>
-              <span className="logo-text">DevSphere</span>
+              <span className="logo-text">DevSakib</span>
             </div>
             <p className="footer-tagline">
               Crafting responsive, performant, and delightful web experiences with React JS and Vite.
@@ -55,7 +55,7 @@ function Footer() {
 
         <div className="footer-bottom">
           <p className="copyright-text">
-            &copy; {currentYear} DevSphere. All Rights Reserved.
+            &copy; {currentYear} DevSakib. All Rights Reserved.
           </p>
           <p className="footer-subtext">
             Designed & Developed with ❤️ for Ostad Module 14 Assignment.

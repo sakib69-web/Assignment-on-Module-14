@@ -6,7 +6,7 @@ function Header() {
       <div className="header-container">
         <div className="brand-logo" id="site-logo">
           <span className="logo-icon">⚡</span>
-          <span className="logo-text">DevSphere</span>
+          <span className="logo-text">DevSakib</span>
         </div>
         
         <nav className="nav-menu" aria-label="Main Navigation">
