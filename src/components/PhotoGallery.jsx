@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import PhotoCard from './PhotoCard';
 import PhotoModal from './PhotoModal';
 import {
   Filter,
   ArrowUpDown,
   RefreshCw,
-  Search,
   Sparkles,
   AlertCircle,
   FolderOpen,
-  SlidersHorizontal,
 } from 'lucide-react';
 
 const API_ENDPOINT = 'https://jsonplaceholder.typicode.com/photos';
@@ -36,13 +34,13 @@ const PhotoGallery = ({ searchQuery = '', onSearchChange, onCountChange }) => {
   const [sortOrder, setSortOrder] = useState('id-asc'); // 'id-asc' | 'id-desc' | 'title-asc'
   const [activePhoto, setActivePhoto] = useState(null);
 
-  // Fetch photos on component mount using native fetch()
-  const fetchPhotos = async () => {
-    setLoading(true);
+  // Fetch photos from API using native fetch()
+  const fetchPhotos = useCallback(async () => {
     setError(null);
+    setLoading(true);
 
     try {
-      // NOTE: Using native fetch() as strictly requested (No Axios)
+      // NOTE: Using native fetch() as strictly required (No Axios)
       const response = await fetch(API_ENDPOINT);
 
       if (!response.ok) {
@@ -60,10 +58,38 @@ const PhotoGallery = ({ searchQuery = '', onSearchChange, onCountChange }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
+  // Fetch photos on initial mount
   useEffect(() => {
-    fetchPhotos();
+    let ignore = false;
+
+    async function loadData() {
+      try {
+        const response = await fetch(API_ENDPOINT);
+        if (!response.ok) {
+          throw new Error(`HTTP Error! Status: ${response.status} (${response.statusText})`);
+        }
+        const data = await response.json();
+        if (!ignore) {
+          setPhotos(data.slice(0, 100));
+        }
+      } catch (err) {
+        if (!ignore) {
+          setError(err.message || 'Failed to load photos.');
+        }
+      } finally {
+        if (!ignore) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadData();
+
+    return () => {
+      ignore = true;
+    };
   }, []);
 
   // Compute available unique albums from loaded photos (e.g., Album 1, Album 2)
@@ -71,31 +97,33 @@ const PhotoGallery = ({ searchQuery = '', onSearchChange, onCountChange }) => {
     (a, b) => a - b
   );
 
-  // Filter & Search Logic
-  const filteredPhotos = photos
-    .filter((photo) => {
-      // Filter by Album ID
-      if (selectedAlbum !== 'all' && photo.albumId !== Number(selectedAlbum)) {
-        return false;
-      }
+  // Filter & Search Logic (memoized for peak performance)
+  const filteredPhotos = useMemo(() => {
+    return photos
+      .filter((photo) => {
+        // Filter by Album ID
+        if (selectedAlbum !== 'all' && photo.albumId !== Number(selectedAlbum)) {
+          return false;
+        }
 
-      // Filter by Search Query (searches both title and ID)
-      if (searchQuery.trim() !== '') {
-        const query = searchQuery.toLowerCase().trim();
-        const matchesTitle = photo.title.toLowerCase().includes(query);
-        const matchesId = photo.id.toString() === query || `#${photo.id}` === query;
-        const matchesAlbum = `album ${photo.albumId}`.includes(query);
-        return matchesTitle || matchesId || matchesAlbum;
-      }
+        // Filter by Search Query (searches both title and ID)
+        if (searchQuery.trim() !== '') {
+          const query = searchQuery.toLowerCase().trim();
+          const matchesTitle = photo.title.toLowerCase().includes(query);
+          const matchesId = photo.id.toString() === query || `#${photo.id}` === query;
+          const matchesAlbum = `album ${photo.albumId}`.includes(query);
+          return matchesTitle || matchesId || matchesAlbum;
+        }
 
-      return true;
-    })
-    .sort((a, b) => {
-      if (sortOrder === 'id-asc') return a.id - b.id;
-      if (sortOrder === 'id-desc') return b.id - a.id;
-      if (sortOrder === 'title-asc') return a.title.localeCompare(b.title);
-      return 0;
-    });
+        return true;
+      })
+      .sort((a, b) => {
+        if (sortOrder === 'id-asc') return a.id - b.id;
+        if (sortOrder === 'id-desc') return b.id - a.id;
+        if (sortOrder === 'title-asc') return a.title.localeCompare(b.title);
+        return 0;
+      });
+  }, [photos, selectedAlbum, searchQuery, sortOrder]);
 
   // Notify parent of count updates for Header display
   useEffect(() => {

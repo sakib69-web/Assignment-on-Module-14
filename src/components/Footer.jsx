@@ -1,6 +1,8 @@
 import React from 'react';
 import { Camera, ArrowUp, Code2, Heart, ExternalLink, Layers, CheckCircle2 } from 'lucide-react';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 /**
  * Footer Component
  * Displays project credentials, tech stack badges, quick links, and a scroll-to-top button.
@@ -87,7 +89,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="footer-bottom-container">
           <p className="copyright-text">
-            © {new Date().getFullYear()} PhotoGallery. Crafted with{' '}
+            © {CURRENT_YEAR} PhotoGallery. Crafted with{' '}
             <Heart size={14} className="heart-icon" /> for Module 15 Assignment.
           </p>
 
