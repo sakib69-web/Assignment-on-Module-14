@@ -5,7 +5,7 @@ import { X, ExternalLink, Copy, Check, Hash, FolderKanban, Info, Image as ImageI
  * Fallback image when full size modal image fails
  */
 const FALLBACK_MODAL_IMAGE =
-  'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22600%22%20height%3D%22600%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20600%20600%22%3E%3Crect%20fill%3D%22%231e293b%22%20width%3D%22600%22%20height%3D%22600%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22260%22%20r%3D%2270%22%20fill%3D%22%236366f1%22%2F%3E%3Cpath%20d%3D%22M150%20480%20c50-80%20150-100%20300%200z%22%20fill%3D%22%2338bdf8%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2292%25%22%20font-size%3D%2222%22%20font-family%3D%22sans-serif%22%20fill%3D%22%2394a3b8%22%20text-anchor%3D%22middle%22%3EPhoto%20Details%20View%3C%2Ftext%3E%3C%2Fsvg%3E';
+  'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22600%22%20height%3D%22600%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20600%20600%22%3E%3Crect%20fill%3D%22%2306281e%22%20width%3D%22600%22%20height%3D%22600%22%2F%3E%3Ccircle%20cx%3D%22300%22%20cy%3D%22260%22%20r%3D%2270%22%20fill%3D%22%23059669%22%2F%3E%3Cpath%20d%3D%22M150%20480%20c50-80%20150-100%20300%200z%22%20fill%3D%22%2334d399%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2292%25%22%20font-size%3D%2222%22%20font-family%3D%22sans-serif%22%20fill%3D%22%23a7d9c6%22%20text-anchor%3D%22middle%22%3EPhoto%20Details%20View%3C%2Ftext%3E%3C%2Fsvg%3E';
 
 /**
  * PhotoModal Component (Lightbox/Details view)
